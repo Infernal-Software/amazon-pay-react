@@ -19,14 +19,14 @@ class WalletWidget extends PureComponent {
   }
 
   componentDidMount() {
-    const { sellerId, onPaymentSelect, onError, style,  ...other } = this.props;
+    const { sellerId, onOrderReferenceCreate } = this.props;
 
     new OffAmazonPayments.Widgets.Wallet({
       sellerId,
       design:          { designMode: 'responsive' },
       onPaymentSelect: this.onPaymentSelect,
       onError:         this.onError,
-      ...other
+      onOrderReferenceCreate: onOrderReferenceCreate
     }).bind(AMAZON_WALLET_WIDGET_DIV_ID);
   }
 
